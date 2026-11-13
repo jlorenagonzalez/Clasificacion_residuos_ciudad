@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proyecto | Clasificador Inteligente de Residuos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top mini"><div class="hero"><img src="logo_udec.png" alt="Universidad de Cundinamarca"><div><h1>Clasificador Inteligente de Residuos</h1></div></div></header>
+<nav class="menu" aria-label="Menú principal"><ul><li><a href="index.html">Inicio</a></li><li><a href="proyecto.html" class="act">Proyecto</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="analisis.html">Análisis</a></li></ul></nav>
+<main>
+<section id="metodologia">
+  <h2>Metodología<small>CRISP-DM aplicado al proyecto</small></h2>
+  <div class="timeline">
+<div class="step"><span>1</span><h3>Comprensión del negocio</h3><p>Se definió el problema de la recolección sin información y las preguntas que debe responder el tablero.</p></div>
+<div class="step"><span>2</span><h3>Comprensión de los datos</h3><p>Se estudiaron las lecturas del ESP32 (humedad, sensor inductivo, distancia) y se diseñó la base relacional <code>ClasificadorBasura</code>.</p></div>
+<div class="step"><span>3</span><h3>Preparación de los datos</h3><p>Se simuló 1.000.000 de mediciones y se cargaron con un proceso ETL en SSIS hacia <code>ClasificadorBasuraDW</code>, con validaciones de conteos, nulos y rechazados.</p></div>
+<div class="step"><span>4</span><h3>Modelado</h3><p>Esquema en estrella: una tabla de hechos (una fila por medición) y seis dimensiones, con medidas DAX para los indicadores.</p></div>
+<div class="step"><span>5</span><h3>Evaluación</h3><p>Cada indicador del tablero se comparó con consultas SQL sobre la bodega y sobre el archivo de origen.</p></div>
+<div class="step"><span>6</span><h3>Despliegue</h3><p>Tablero publicado en Power BI y presentado en este sitio, con hallazgos y decisiones.</p></div>
+</div>
+</section><section id="datos">
+  <h2>Datos y modelo<small>Bodega de datos en estrella</small></h2>
+  <figure class="chart" style="margin-bottom:14px"><figcaption>Modelo en estrella de la bodega de datos</figcaption><img src="modelo_estrella.png" alt="Modelo en estrella" style="width:100%;max-width:820px;display:block;margin:0 auto"></figure>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Tabla de hechos</h3>
+      <p><code>fact_medicion</code>: una fila por medición, con cantidad, humedad, lectura cruda, distancia, nivel de llenado, caneca llena, sin lectura y minutos de atención.</p>
+      <h3 style="margin-top:12px">Dimensiones</h3>
+      <span class="pill">dim_fecha</span><span class="pill">dim_hora</span><span class="pill">dim_dispositivo</span><span class="pill">dim_tipo_residuo</span><span class="pill">dim_estado_caneca</span><span class="pill">dim_tipo_evento</span>
+    </div>
+    <div class="card">
+      <h3>Indicadores (medidas DAX)</h3>
+      <p><b>Total residuos</b> · <b>Dispositivos activos</b> · <b>Eventos de alerta</b> · <b>Pct caneca llena</b> (11,35 %) · <b>Pct sin lectura</b> (0,59 %) · <b>Nivel promedio</b> · <b>Eventos por 1000 residuos</b>.</p>
+      <p style="color:var(--suave);font-size:.9rem">Los datos son simulados con distribuciones diferentes por punto y por hora, para reflejar un uso realista del sistema.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><span><a href="index.html">← Inicio</a></span><span><a href="dashboard.html">Dashboard →</a></span></div>
+</main>
+<footer>Universidad de Cundinamarca · Big Data · Anamaria Caceres Rodriguez, Jendy Lorena Gonzalez Gonzalez y Carlos Mario Del Valle Carron · 2026</footer>
+</body>
+</html>

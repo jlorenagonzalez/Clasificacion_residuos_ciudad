@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inicio | Clasificador Inteligente de Residuos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="hero"><img src="logo_udec.png" alt="Universidad de Cundinamarca"><div><h1>Clasificador Inteligente de Residuos</h1><p>Bodega de datos y tablero interactivo para analizar una red de estaciones de clasificación</p><div class="badges"><span>Big Data</span><span>Ingeniería de Sistemas y Computación</span><span>Extensión Chía</span><span>Séptimo semestre</span></div></div></div></header>
+<nav class="menu" aria-label="Menú principal"><ul><li><a href="index.html" class="act">Inicio</a></li><li><a href="proyecto.html">Proyecto</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="analisis.html">Análisis</a></li></ul></nav>
+<main>
+<section id="resumen">
+  <h2>Inicio<small>Resumen del proyecto</small></h2>
+  <div class="card">
+    <p>El proyecto propone un sistema de clasificación inteligente de residuos basado en estaciones con sensores. El prototipo físico (maqueta) corresponde a una <b>estación piloto</b> construida con un ESP32, un sensor de humedad, un sensor inductivo y un sensor ultrasónico, que envía sus lecturas a Node-RED y a una base de datos en Azure SQL.</p>
+    <p>Para analizar el comportamiento del sistema a mayor escala se simuló su despliegue en <b>8 puntos de instalación</b>, generando <b>1.000.000 de mediciones</b> (1 de noviembre de 2025 al 31 de octubre de 2026). Esas mediciones se cargaron en una bodega de datos con esquema en estrella y alimentan el tablero de Power BI que se presenta en este sitio.</p>
+  </div>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card kpi"><b>1.000.000</b><span>mediciones simuladas</span></div>
+    <div class="card kpi" style="border-left-color:var(--azul)"><b>8</b><span>estaciones (1 prototipo + 7 simuladas)</span></div>
+    <div class="card kpi" style="border-left-color:var(--amar)"><b>49.299</b><span>eventos de alerta (49,3 por cada 1.000 residuos)</span></div>
+  </div>
+</section><section id="identificacion">
+  <h2>Identificación<small>Datos del trabajo</small></h2>
+  <div class="card tablewrap">
+    <table>
+      <tr><th style="width:230px">Institución</th><td>Universidad de Cundinamarca</td></tr>
+      <tr><th>Asignatura</th><td>Big Data</td></tr>
+      <tr><th>Programa académico</th><td>Ingeniería de Sistemas y Computación</td></tr>
+      <tr><th>Sede</th><td>Extensión Chía, Cundinamarca</td></tr>
+      <tr><th>Ciclo / semestre</th><td>Séptimo semestre</td></tr>
+      <tr><th>Tipo de proyecto</th><td>Proyecto de la asignatura Big Data</td></tr>
+      <tr><th>Integrantes</th><td>Anamaria Caceres Rodriguez<br>Jendy Lorena Gonzalez Gonzalez<br>Carlos Mario Del Valle Carron</td></tr>
+      <tr><th>Fecha</th><td>13 de noviembre de 2026</td></tr>
+    </table>
+  </div>
+</section><section id="contexto">
+  <h2>Contexto y problema<small>Por qué se analiza este sistema</small></h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Problema</h3>
+      <p>La recolección de residuos se programa casi siempre por rutas y horarios fijos, sin saber cuánto se genera en cada punto, a qué hora ni de qué tipo. Esto produce rondas innecesarias en puntos con poca carga y canecas desbordadas en puntos con mucha.</p>
+    </div>
+    <div class="card">
+      <h3>Propuesta</h3>
+      <p>Medir en cada estación el tipo de residuo (metal, seco, orgánico) y el nivel de llenado de la caneca, guardar cada medición en una bodega de datos y consultarla con un tablero interactivo para decidir dónde, cuándo y con qué prioridad recolectar.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>Preguntas del análisis</h3>
+    <p>¿En qué horas se genera más residuo? ¿Qué punto aporta más? ¿Cambia la composición según el lugar? ¿Dónde se presentan más alertas por cada 1.000 residuos? ¿Cómo varía el volumen a lo largo del año y de la semana?</p>
+  </div>
+</section>
+<div class="pager"><span></span><span><a href="proyecto.html">Proyecto →</a></span></div>
+</main>
+<footer>Universidad de Cundinamarca · Big Data · Anamaria Caceres Rodriguez, Jendy Lorena Gonzalez Gonzalez y Carlos Mario Del Valle Carron · 2026</footer>
+</body>
+</html>
